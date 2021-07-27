@@ -1,7 +1,7 @@
 package models
 
 type Product struct {
-Id int `gorm:"primary_key;column:CustomerID"`
+Id int `gorm:"primary_key;column:ProductID"`
 ProductName string `gorm:"column:ProductName"`
 SupplierId int `gorm:"column:SupplierId"`
 CategoryID int `gorm:"column:CategoryID"`
