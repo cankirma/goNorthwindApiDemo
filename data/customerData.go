@@ -4,11 +4,11 @@ import (
 	"goNorthwindApiDemo/cfg"
 	"goNorthwindApiDemo/models"
 )
-type CustomerModel struct {
+type CustomerData struct {
 }
 
 // GetCustomer get all
-func (customerModel CustomerModel) GetCustomer() ([]models.Customer, error) {
+func (customerData CustomerData) GetCustomer() ([]models.Customer, error) {
 	db ,err := cfg.DbExport.OpenDB()
 	if err != nil {
 		return nil,err
@@ -20,7 +20,7 @@ func (customerModel CustomerModel) GetCustomer() ([]models.Customer, error) {
 }
 
 // GetCustomerById get by id get/{id}
-func (customerModel CustomerModel) GetCustomerById(id string)(models.Customer,error)  {
+func (customerData CustomerData) GetCustomerById(id string)(models.Customer,error)  {
 	db,err := cfg.DbExport.OpenDB()
 	if err!= nil{
 		return models.Customer{}, err
@@ -32,7 +32,7 @@ func (customerModel CustomerModel) GetCustomerById(id string)(models.Customer,er
 }
 
 // CreateCustomer post
-func (customerModel CustomerModel)  CreateCustomer(customer *models.Customer) error{
+func (customerData CustomerData)  CreateCustomer(customer *models.Customer) error{
 	db,err:= cfg.DbExport.OpenDB()
 	if err!= nil {
 	return err
@@ -43,7 +43,7 @@ func (customerModel CustomerModel)  CreateCustomer(customer *models.Customer) er
 	}
 }
 //UpdateCustomer
-func (customerModel CustomerModel) UpdateCustomer(customer *models.Customer)  error {
+func (customerData CustomerData) UpdateCustomer(customer *models.Customer)  error {
 	db,err:= cfg.DbExport.OpenDB()
 	if err!= nil {
 		return err
@@ -52,7 +52,7 @@ func (customerModel CustomerModel) UpdateCustomer(customer *models.Customer)  er
 		return nil
 	}
 }
-func (customerModel CustomerModel) DeleteCustomer(customer models.Customer) error  {
+func (customerData CustomerData) DeleteCustomer(customer models.Customer) error  {
 	db,err := cfg.DbExport.OpenDB()
 	if err!= nil{
 		return err
